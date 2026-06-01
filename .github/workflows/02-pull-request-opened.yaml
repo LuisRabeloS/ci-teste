@@ -1,0 +1,23 @@
+# Pipeline de execução automática a cada Pull Request com a master
+name: Execução automática - PR aberta
+
+on:
+  pull_request:
+    branches: 
+      - master 
+
+jobs:
+  unit-tests:
+    runs-on: windows latest
+    steps: 
+      - uses: actions/checkout@v4
+
+      - uses: action/setup-node@v4
+        with:
+          node-version: '24.x'
+
+      - name: Instalando mocha
+        run: npm i mocha
+
+      - name: Rodando os testes
+        run: npx mocha            
