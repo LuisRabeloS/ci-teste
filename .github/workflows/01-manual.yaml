@@ -1,0 +1,21 @@
+# Pipeline de execução manual
+
+name: 'Execução manual'
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs_on: ubuntu-latest  
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: 24.x
+
+      - name: Instalando mocha
+        run: npm i mocha
+
+      - name: Rodando os testes
+        run: npx mocha    
