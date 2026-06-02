@@ -1,0 +1,23 @@
+# Pipeline de execução automática após merge na master 
+name: Execução automática - e2e merge com a master 
+
+on: 
+  push: 
+    branches: 
+      - master 
+      
+jobs: 
+  e2e-tests: 
+    runs-on: ubunto-latest 
+    steps: 
+      - uses: actions/checkout@v4 
+
+      - uses: actions/setup-node@v4 
+        with: 
+          node-version: '24.x' 
+
+      - name: Instalando mocha 
+        run: npm i mocha 
+        
+      - name: Executando os testes 
+        run: npx mocha
