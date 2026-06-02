@@ -8,11 +8,11 @@ on:
 
 jobs:
   unit-tests:
-    runs-on: windows latest
+    runs-on: windows-latest
     steps: 
       - uses: actions/checkout@v4
 
-      - uses: action/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '24.x'
 

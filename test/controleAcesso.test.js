@@ -26,4 +26,8 @@ describe('Testando funções de acesso ao cinema', () => {
         let respostaAcesso = validarAcessoCinema(16,"16")
         assert.equal(respostaAcesso,"Permitido")
     });
+    it('Validar que idade 16 possa assistir filme de 10', () => {
+        let respostaAcesso = validarAcessoCinema(16,'10')
+        assert.equal(respostaAcesso,"Permitido")
+    })
 })
